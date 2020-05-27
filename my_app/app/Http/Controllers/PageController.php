@@ -15,4 +15,9 @@ class PageController extends Controller
     public function add() {
         return view('add');
     }
+
+    public function show($id) {
+        
+        return view('show')->with('user', Users::find($id));
+    }
 }

@@ -23,7 +23,5 @@ Route::get('/', 'PageController@index');
 
 Route::get('/add', 'PageController@add');
 
-Route::get('/users/{id}', function ($id) {
-    return 'This is your id: '.$id;
-});
+Route::get('/{id}', 'PageController@show');
 
