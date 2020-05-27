@@ -20,4 +20,17 @@ class PageController extends Controller
         
         return view('show')->with('user', Users::find($id));
     }
+
+    public function adduser() {
+        $data = request()->all();
+
+        $user = new Users();
+
+        $user->fname = $data['fname'];
+        $user->lname = $data['lname'];
+        $user->email = $data['email'];
+
+        $user->save();
+
+    }
 }
