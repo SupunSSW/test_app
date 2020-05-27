@@ -22,6 +22,12 @@ class PageController extends Controller
     }
 
     public function adduser() {
+
+        $this->validate(request(), [
+            'fname' => 'required',
+            'lname' => 'required',
+            'email' => 'required'
+        ]);
         $data = request()->all();
 
         $user = new Users();
@@ -31,6 +37,8 @@ class PageController extends Controller
         $user->email = $data['email'];
 
         $user->save();
+
+        return redirect('/');
 
     }
 }
